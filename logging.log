@@ -1,0 +1,181 @@
+2024/12/02 00:32:51 Request: GET /courses/ ::1
+2024/12/02 00:32:51 Response: 200 [{"id":2,"name":"2","description":"one2"},{"id":4,"name":"random","description":"random"},{"id":5,"name":"random","description":"random"},{"id":6,"name":"random","description":"random"},{"id":7,"name":"random","description":"random"},{"id":8,"name":"random","description":"random"}] 920.6µs GET /courses/
+2024/12/02 00:32:59 Request: GET /courses/ ::1
+2024/12/02 00:32:59 Response: 200 [{"id":2,"name":"2","description":"one2"},{"id":4,"name":"random","description":"random"},{"id":5,"name":"random","description":"random"},{"id":6,"name":"random","description":"random"},{"id":7,"name":"random","description":"random"},{"id":8,"name":"random","description":"random"}] 509.9µs GET /courses/
+2024/12/02 00:32:59 Request: GET /courses/ ::1
+2024/12/02 00:32:59 Response: 200 [{"id":2,"name":"2","description":"one2"},{"id":4,"name":"random","description":"random"},{"id":5,"name":"random","description":"random"},{"id":6,"name":"random","description":"random"},{"id":7,"name":"random","description":"random"},{"id":8,"name":"random","description":"random"}] 0s GET /courses/
+2024/12/02 00:38:29 Request: GET /courses/ ::1
+2024/12/02 00:38:29 Response: 401 {"error":"Unauthorized"} GET /courses/
+2024/12/02 00:38:46 Request: GET /courses/ ::1
+2024/12/02 00:38:46 Response: 200 [{"id":2,"name":"2","description":"one2"},{"id":4,"name":"random","description":"random"},{"id":5,"name":"random","description":"random"},{"id":6,"name":"random","description":"random"},{"id":7,"name":"random","description":"random"},{"id":8,"name":"random","description":"random"}] GET /courses/
+2024/12/02 00:39:25 Request: GET /courses/ ::1
+2024/12/02 00:39:25 Response: 401 {"error":"Unauthorized"} GET /courses/
+2024/12/02 00:57:44 Request: GET /students/ ::1
+2024/12/02 00:57:44 Response: 401 {"error":"Unauthorized"} GET /students/
+2024/12/02 00:58:02 Request: GET /students/ ::1
+2024/12/02 00:58:02 Response: 200 [{"id":1,"name":"harshith","age":100,"college":"bits K","year":2},{"id":6,"name":"name2","age":100,"college":"bits K","year":2},{"id":7,"name":"name2","age":100,"college":"bits K","year":2}] GET /students/
+2024/12/02 00:58:27 Request: POST /students/ ::1
+2024/12/02 00:58:27 Response: 400 {"error":"Invalid request body"} POST /students/
+2024/12/02 00:59:33 Request: POST /students/ ::1
+2024/12/02 00:59:33 Response: 400 {"error":"Invalid request body"} POST /students/
+2024/12/02 01:00:39 Request: POST /students/ ::1
+2024/12/02 01:00:39 Response: 400 {"error":"invalid character '}' looking for beginning of object key string"} POST /students/
+2024/12/02 01:00:44 Request: POST /students/ ::1
+2024/12/02 01:00:44 http: panic serving [::1]:51654: Undefined validation function ' gt' on field 'Age'
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1947 +0xbe
+panic({0x63f4e0?, 0xc0001da910?})
+	C:/Program Files/Go/src/runtime/panic.go:785 +0x132
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0xc0001baaf0, {0x62df30?, 0x6e43db?}, {0x62df18, 0x3}, {0x0, 0x0}, 0x0)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/cache.go:299 +0xa48
+github.com/go-playground/validator/v10.(*Validate).extractStructCache(0xc0001baaf0, {0x6aa140?, 0xc00008fd40?, 0x0?}, {0x61b580, 0x7})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/cache.go:156 +0x5c5
+github.com/go-playground/validator/v10.(*validate).validateStruct(0xc0000f7560, {0x7a6ed0, 0xad78c0}, {0x634040?, 0xc00008fd40?, 0xc00003f628?}, {0x6aa140?, 0xc00008fd40?, 0x10000006aa140?}, {0x7ad740, ...}, ...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator.go:38 +0x17c
+github.com/go-playground/validator/v10.(*Validate).StructCtx(0xc0001baaf0, {0x7a6ed0, 0xad78c0}, {0x634040, 0xc00008fd40})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator_instance.go:395 +0x445
+github.com/go-playground/validator/v10.(*Validate).Struct(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator_instance.go:368
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0xa8fe10, {0x634040, 0xc00008fd40})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/default_validator.go:83 +0x4b
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0xa8fe10, {0x634040, 0xc00008fd40})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/default_validator.go:60 +0x13e
+github.com/gin-gonic/gin/binding.validate(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON({0x1a17efd5238?, 0xc00008fd00?}, {0x634040, 0xc00008fd40})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/json.go:55 +0x9c
+github.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0xc00007f008?, {0x634040?, 0xc00008fd40?})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/json.go:37 +0x86
+github.com/gin-gonic/gin.(*Context).ShouldBindWith(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:752
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON(0xc0001b8200?, {0x634040?, 0xc00008fd40?})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:712 +0x58
+github.com/Hharithsa/student-course-registration/handler/student.(*handler).AddStudentsRoutes.ValidateStudentRequest.func1(0xc0001b8200)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/validator/validator.go:14 +0x39
+github.com/gin-gonic/gin.(*Context).Next(0xc0001b8200)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185 +0x2b
+github.com/Hharithsa/student-course-registration/cmd/api.(*server).addAllMiddleware.AuthMiddleware.func1(0xc0001b8200)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/authenticator/authenticator.go:16 +0xce
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185
+github.com/Hharithsa/student-course-registration/middleware/logger.LoggingMiddleware.func1(0xc0001b8200)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/logger/logger.go:26 +0x24f
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0000c8d00, 0xc0001b8200)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/gin.go:633 +0x892
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0000c8d00, {0x7a6780, 0xc0000cc700}, 0xc000097040)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/gin.go:589 +0x1b2
+net/http.serverHandler.ServeHTTP({0x7a4ff8?}, {0x7a6780?, 0xc0000cc700?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3210 +0x8e
+net/http.(*conn).serve(0xc000124000, {0x7a6f78, 0xc0001bc450})
+	C:/Program Files/Go/src/net/http/server.go:2092 +0x5d0
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3360 +0x485
+2024/12/02 01:01:49 Request: POST /students/ ::1
+2024/12/02 01:01:49 http: panic serving [::1]:51661: Undefined validation function ' gt' on field 'Age'
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1947 +0xbe
+panic({0x51f4e0?, 0xc0001da760?})
+	C:/Program Files/Go/src/runtime/panic.go:785 +0x132
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0xc0001b8af0, {0x50df30?, 0x5c43db?}, {0x50df18, 0x3}, {0x0, 0x0}, 0x0)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/cache.go:299 +0xa48
+github.com/go-playground/validator/v10.(*Validate).extractStructCache(0xc0001b8af0, {0x58a140?, 0xc00008fc80?, 0x0?}, {0x4fb580, 0x7})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/cache.go:156 +0x5c5
+github.com/go-playground/validator/v10.(*validate).validateStruct(0xc0000f7680, {0x686ed0, 0x9b78c0}, {0x514040?, 0xc00008fc80?, 0xc00003f628?}, {0x58a140?, 0xc00008fc80?, 0x100000058a140?}, {0x68d740, ...}, ...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator.go:38 +0x17c
+github.com/go-playground/validator/v10.(*Validate).StructCtx(0xc0001b8af0, {0x686ed0, 0x9b78c0}, {0x514040, 0xc00008fc80})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator_instance.go:395 +0x445
+github.com/go-playground/validator/v10.(*Validate).Struct(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator_instance.go:368
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x96fe10, {0x514040, 0xc00008fc80})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/default_validator.go:83 +0x4b
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x96fe10, {0x514040, 0xc00008fc80})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/default_validator.go:60 +0x13e
+github.com/gin-gonic/gin/binding.validate(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON({0x26f61905218?, 0xc00008fc40?}, {0x514040, 0xc00008fc80})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/json.go:55 +0x9c
+github.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x972fe0?, {0x514040?, 0xc00008fc80?})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/json.go:37 +0x86
+github.com/gin-gonic/gin.(*Context).ShouldBindWith(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:752
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON(0xc0001b6200?, {0x514040?, 0xc00008fc80?})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:712 +0x58
+github.com/Hharithsa/student-course-registration/handler/student.(*handler).AddStudentsRoutes.ValidateStudentRequest.func1(0xc0001b6200)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/validator/validator.go:14 +0x39
+github.com/gin-gonic/gin.(*Context).Next(0xc0001b6200)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185 +0x2b
+github.com/Hharithsa/student-course-registration/cmd/api.(*server).addAllMiddleware.AuthMiddleware.func1(0xc0001b6200)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/authenticator/authenticator.go:16 +0xce
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185
+github.com/Hharithsa/student-course-registration/middleware/logger.LoggingMiddleware.func1(0xc0001b6200)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/logger/logger.go:26 +0x24f
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc0000c8d00, 0xc0001b6200)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/gin.go:633 +0x892
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc0000c8d00, {0x686780, 0xc0000cc540}, 0xc000096c80)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/gin.go:589 +0x1b2
+net/http.serverHandler.ServeHTTP({0x684ff8?}, {0x686780?, 0xc0000cc540?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3210 +0x8e
+net/http.(*conn).serve(0xc000244000, {0x686f78, 0xc0001ba450})
+	C:/Program Files/Go/src/net/http/server.go:2092 +0x5d0
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3360 +0x485
+2024/12/02 01:02:13 Request: POST /students/ ::1
+2024/12/02 01:02:13 http: panic serving [::1]:51670: Undefined validation function ' gte' on field 'Age'
+goroutine 9 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1947 +0xbe
+panic({0xb1f4e0?, 0xc000232c80?})
+	C:/Program Files/Go/src/runtime/panic.go:785 +0x132
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0xc000274000, {0xb0e157?, 0xbc43db?}, {0xb0e13f, 0x3}, {0x0, 0x0}, 0x0)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/cache.go:299 +0xa48
+github.com/go-playground/validator/v10.(*Validate).extractStructCache(0xc000274000, {0xb8a140?, 0xc000236180?, 0x0?}, {0xafb580, 0x7})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/cache.go:156 +0x5c5
+github.com/go-playground/validator/v10.(*validate).validateStruct(0xc0002485a0, {0xc86ed0, 0xfb78c0}, {0xb14040?, 0xc000236180?, 0xc000247628?}, {0xb8a140?, 0xc000236180?, 0x1000000b8a140?}, {0xc8d740, ...}, ...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator.go:38 +0x17c
+github.com/go-playground/validator/v10.(*Validate).StructCtx(0xc000274000, {0xc86ed0, 0xfb78c0}, {0xb14040, 0xc000236180})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator_instance.go:395 +0x445
+github.com/go-playground/validator/v10.(*Validate).Struct(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/go-playground/validator/v10@v10.23.0/validator_instance.go:368
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0xf6fe10, {0xb14040, 0xc000236180})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/default_validator.go:83 +0x4b
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0xf6fe10, {0xb14040, 0xc000236180})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/default_validator.go:60 +0x13e
+github.com/gin-gonic/gin/binding.validate(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON({0x23760fe3ff8?, 0xc000236140?}, {0xb14040, 0xc000236180})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/json.go:55 +0x9c
+github.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0xf72fe0?, {0xb14040?, 0xc000236180?})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/binding/json.go:37 +0x86
+github.com/gin-gonic/gin.(*Context).ShouldBindWith(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:752
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON(0xc00025c000?, {0xb14040?, 0xc000236180?})
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:712 +0x58
+github.com/Hharithsa/student-course-registration/handler/student.(*handler).AddStudentsRoutes.ValidateStudentRequest.func1(0xc00025c000)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/validator/validator.go:14 +0x39
+github.com/gin-gonic/gin.(*Context).Next(0xc00025c000)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185 +0x2b
+github.com/Hharithsa/student-course-registration/cmd/api.(*server).addAllMiddleware.AuthMiddleware.func1(0xc00025c000)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/authenticator/authenticator.go:16 +0xce
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185
+github.com/Hharithsa/student-course-registration/middleware/logger.LoggingMiddleware.func1(0xc00025c000)
+	C:/Users/Hharithsa/Desktop/student-course/middleware/logger/logger.go:26 +0x24f
+github.com/gin-gonic/gin.(*Context).Next(...)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/context.go:185
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc00012a000, 0xc00025c000)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/gin.go:633 +0x892
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc00012a000, {0xc86780, 0xc0002560e0}, 0xc000238140)
+	C:/Users/Hharithsa/go/pkg/mod/github.com/gin-gonic/gin@v1.10.0/gin.go:589 +0x1b2
+net/http.serverHandler.ServeHTTP({0xc84ff8?}, {0xc86780?, 0xc0002560e0?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3210 +0x8e
+net/http.(*conn).serve(0xc0000f82d0, {0xc86f78, 0xc000112270})
+	C:/Program Files/Go/src/net/http/server.go:2092 +0x5d0
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3360 +0x485
