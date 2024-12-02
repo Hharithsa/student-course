@@ -1,6 +1,8 @@
 package validator
 
 import (
+	"bytes"
+	"io"
 	"net/http"
 
 	"github.com/Hharithsa/student-course-registration/entity"
@@ -9,6 +11,17 @@ import (
 
 func ValidateStudentRequest() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		body, err := io.ReadAll(c.Request.Body)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "Unable to read request body",
+			})
+			c.Abort()
+			return
+		}
+
+		c.Request.Body = io.NopCloser(bytes.NewBuffer(body))
+
 		var student entity.Student
 
 		if err := c.ShouldBindJSON(&student); err != nil {
@@ -19,12 +32,25 @@ func ValidateStudentRequest() gin.HandlerFunc {
 			return
 		}
 
+		c.Set("student", student)
+
 		c.Next()
 	}
 }
 
 func ValidateCoursesRequest() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		body, err := io.ReadAll(c.Request.Body)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "Unable to read request body",
+			})
+			c.Abort()
+			return
+		}
+
+		c.Request.Body = io.NopCloser(bytes.NewBuffer(body))
+
 		var course entity.Course
 
 		if err := c.ShouldBindJSON(&course); err != nil {
@@ -34,6 +60,8 @@ func ValidateCoursesRequest() gin.HandlerFunc {
 			c.Abort()
 			return
 		}
+
+		c.Set("course", course)
 
 		c.Next()
 	}

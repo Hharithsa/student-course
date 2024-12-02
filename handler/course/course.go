@@ -35,7 +35,21 @@ func (h *handler) AddCoursesRoutes(rg *gin.Engine) {
 }
 
 func (h *handler) postCourses(c *gin.Context) {
-	course := entity.Course{}
+	body, exists := c.Get("course")
+	if !exists {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Course data not found in context",
+		})
+		return
+	}
+
+	course, ok := body.(entity.Course)
+	if !ok {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to cast student data",
+		})
+		return
+	}
 
 	if err := h.repo.CreateCourses(course); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -91,7 +105,22 @@ func (h *handler) putCoursesByID(c *gin.Context) {
 		return
 	}
 
-	course := entity.Course{ID: idInt}
+	body, exists := c.Get("course")
+	if !exists {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Course data not found in context",
+		})
+		return
+	}
+
+	course, ok := body.(entity.Course)
+	if !ok {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to cast Course data",
+		})
+		return
+	}
+	course.ID = idInt
 
 	if err := h.repo.UpdateCourses(course); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

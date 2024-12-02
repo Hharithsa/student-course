@@ -35,7 +35,21 @@ func (h *handler) AddStudentsRoutes(rg *gin.Engine) {
 }
 
 func (h *handler) postStudents(c *gin.Context) {
-	student := entity.Student{}
+	body, exists := c.Get("student")
+	if !exists {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Student data not found in context",
+		})
+		return
+	}
+
+	student, ok := body.(entity.Student)
+	if !ok {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to cast student data",
+		})
+		return
+	}
 
 	if err := h.repo.CreateStudents(student); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -91,7 +105,22 @@ func (h *handler) putStudentsByID(c *gin.Context) {
 		return
 	}
 
-	student := entity.Student{ID: idInt}
+	body, exists := c.Get("student")
+	if !exists {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Student data not found in context",
+		})
+		return
+	}
+
+	student, ok := body.(entity.Student)
+	if !ok {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to cast student data",
+		})
+		return
+	}
+	student.ID = idInt
 
 	if err := h.repo.UpdateStudents(student); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
